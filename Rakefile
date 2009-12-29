@@ -5,11 +5,11 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "gom-core"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
-    gem.email = "dirk@sebrink.de"
+    gem.summary = %Q{basic GOM functionallity}
+    gem.description = %Q{this gem includes stuff which is of use for the server as well as for gom scripting clients}
+    gem.email = "dirk.luesebrink@gmail.com"
     gem.homepage = "http://github.com/crux/gom-core"
-    gem.authors = ["dirk luesebrink"]
+    gem.authors = ["art+com/dirk luesebrink"]
     gem.add_development_dependency "rspec"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end

@@ -1,6 +1,3 @@
-require 'time'
-require 'date'
-
 module Gom
   module Core
   end
