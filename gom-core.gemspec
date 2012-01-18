@@ -10,12 +10,16 @@ Gem::Specification.new do |s|
   s.email       = ["dirk.luesebrink@artcom.de"]
   s.homepage    = "http://github.com/crux/gom-core"
   s.summary     = %q{basic GOM functionallity}
-  s.description = %q{this gem includes stuff which is of use for the server as well as for gom scripting clients}
-
+  s.description = %q{
+    this gem includes stuff which is of use for the server as well as for gom
+    scripting clients
+  }
   s.rubyforge_project = "gom-core"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  s.executables   = `git ls-files -- bin/*`.split("\n").map do |f| 
+    File.basename(f)
+  end
   s.require_paths = ["lib"]
 end
