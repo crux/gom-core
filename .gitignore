@@ -1,6 +1,9 @@
+*.gem
+*.gemspec
 *.sw?
 .DS_Store
+.bundle
+Gemfile.lock
 coverage
+pkg/*
 rdoc
-pkg
-*.gemspec

@@ -8,7 +8,7 @@ describe Gom::Logger do
   describe "with a Logger" do
     before :each do
       require 'tempfile'
-      @logfile = Tempfile.new self
+      @logfile = Tempfile.new(__FILE__)
       @log = Gom::Logger.new @logfile.path
     end
 
