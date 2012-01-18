@@ -1,5 +1,3 @@
-require 'gom/logger'
-
 module Gom
   # GOM default Logger instance
   Log = Gom::Logger.new
