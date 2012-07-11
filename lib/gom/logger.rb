@@ -1,5 +1,3 @@
-require 'logger'
-
 module Gom
 
   class Logger < ::Logger
@@ -18,13 +16,13 @@ module Gom
     # logfile otherwise
     #
     DEFAULT_OUT = begin
-                    if (RAILS_ROOT.nil? rescue true)
+                    if ! (Object.const_defined? 'Rails')
                       STDOUT
                     else
-                      if 'test' === RAILS_ENV
+                      if 'test' === ::Rails.env
                         STDOUT
                       else 
-                        "#{RAILS_ROOT}/log/gom-#{RAILS_ENV}.log"
+                        "#{::Rails.root.to_s}/log/gom-#{::Rails.env}.log"
                       end
                     end
                   end
@@ -35,7 +33,7 @@ module Gom
 
     # this is to de-patch the rails formatting patch..
     def format_message(severity, timestamp, progname, msg)
-      "#{timestamp.strftime '%Y-%m-%d %H:%M:%S'} #{severity[0,1]} #{msg}\n"
+      "#{timestamp.strftime '%Y-%m-%d %H:%M:%S'} #{severity.chars.first} #{msg}\n"
     end 
 
     # experimental convenience function:
