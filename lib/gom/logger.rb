@@ -1,3 +1,5 @@
+require 'logger'
+
 module Gom
 
   class Logger < ::Logger
@@ -29,6 +31,7 @@ module Gom
 
     def initialize out = DEFAULT_OUT
       super out
+      self.level = ::Logger::DEBUG
     end
 
     # this is to de-patch the rails formatting patch..
