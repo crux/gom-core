@@ -5,7 +5,6 @@ require 'gom/core/version'
 Gem::Specification.new do |s|
   s.name        = "gom-core"
   s.version     = Gom::Core::VERSION
-  s.platform    = Gem::Platform::RUBY
   s.authors     = ["art+com/dirk luesebrink"]
   s.email       = ["dirk.luesebrink@artcom.de"]
   s.homepage    = "http://github.com/crux/gom-core"
@@ -14,7 +13,19 @@ Gem::Specification.new do |s|
     this gem includes stuff which is of use for the server as well as for gom
     scripting clients
   }
-  s.rubyforge_project = "gom-core"
+
+  # development section
+  #
+  s.add_development_dependency 'rspec'
+  s.add_development_dependency 'rspec-mocks'
+  s.add_development_dependency 'guard'
+  s.add_development_dependency 'guard-rspec'
+  s.add_development_dependency 'growl'
+  if RUBY_PLATFORM.match /java/i
+    s.add_development_dependency 'ruby-debug'
+  else
+    s.add_development_dependency 'debugger'
+  end
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
