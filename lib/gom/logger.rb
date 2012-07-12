@@ -17,20 +17,20 @@ module Gom
     # output defaults to STDOUT for rails test and non-rails apps, to a
     # logfile otherwise
     #
-    DEFAULT_OUT = begin
-                    if ! (Object.const_defined? 'Rails')
-                      STDOUT
-                    else
-                      if 'test' === ::Rails.env
-                        STDOUT
-                      else 
-                        "#{::Rails.root.to_s}/log/gom-#{::Rails.env}.log"
-                      end
-                    end
-                  end
+    def default_outstream
+      if ! (Object.const_defined? 'Rails')
+        STDOUT
+      else
+        if 'test' === ::Rails.env
+          STDOUT
+        else 
+          "#{::Rails.root.to_s}/log/gom-#{::Rails.env}.log"
+        end
+      end
+    end
 
-    def initialize out = DEFAULT_OUT
-      super out
+    def initialize out = nil
+      super(out || default_outstream)
       self.level = ::Logger::DEBUG
     end
 
